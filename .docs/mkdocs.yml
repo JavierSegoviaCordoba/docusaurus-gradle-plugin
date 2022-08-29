@@ -1,10 +1,10 @@
-site_name: '"{{ name }}"'
-site_description: '"{{ description }}"'
+site_name: 'Docusaurus Gradle Plugin'
+site_description: 'A Gradle plugin to generate documentation with Docusaurus'
 site_author: 'Javier Segovia Córdoba'
 remote_branch: gh-pages
 
-repo_name: '"{{ repo }}"'
-repo_url: 'https://github.com/JavierSegoviaCordoba/"{{ repo }}"'
+repo_name: 'docusaurus-gradle-plugin'
+repo_url: 'https://github.com/JavierSegoviaCordoba/docusaurus-gradle-plugin'
 
 copyright: 'Copyright &copy; 2021 Javier Segovia Córdoba'
 
