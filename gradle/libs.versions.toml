@@ -1,8 +1,10 @@
 [versions]
-hubdle = "0.2.0-alpha.29"
+hubdle = "0.2.0-alpha.33"
 kotlin = "1.7.10"
+node = "3.4.0"
 
 [libraries]
+github-nodeGradle-node = { module = "com.github.node-gradle:gradle-node-plugin", version.ref = "node" }
 jetbrains-kotlin-kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [plugins]
