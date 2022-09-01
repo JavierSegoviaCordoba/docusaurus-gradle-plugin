@@ -1,0 +1,227 @@
+public abstract class com/javiersc/docusaurus/gradle/plugin/DocusaurusExtension {
+	public fun <init> (Lorg/gradle/api/model/ObjectFactory;Lorg/gradle/api/file/ProjectLayout;)V
+	public final fun getDependsOnKillPortTask ()Lorg/gradle/api/provider/Property;
+	public final fun getDirectory ()Lorg/gradle/api/file/DirectoryProperty;
+	public final fun getName ()Lorg/gradle/api/provider/Property;
+	public final fun getPort ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusPlugin : com/javiersc/gradle/plugin/extensions/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public synthetic fun javaApply (Ljava/lang/Object;)V
+	public fun javaApply (Lorg/gradle/api/Project;)V
+	public synthetic fun kotlinApply (Ljava/lang/Object;)V
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getBundleAnalyzer ()Lorg/gradle/api/provider/Property;
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getNoMinify ()Lorg/gradle/api/provider/Property;
+	public final fun getOutDir ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCheckPackageJsonTask : org/gradle/api/DefaultTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCheckPackageJsonTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> (Lorg/gradle/api/model/ObjectFactory;)V
+	public final fun getName ()Lorg/gradle/api/provider/Property;
+	public final fun getPackageJson ()Lorg/gradle/api/file/RegularFileProperty;
+	public final fun run ()V
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCheckPackageJsonTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask : com/github/gradle/node/npm/task/NpxTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getGitStrategy ()Lorg/gradle/api/provider/Property;
+	public final fun getName ()Lorg/gradle/api/provider/Property;
+	public final fun getPackageManager ()Lorg/gradle/api/provider/Property;
+	public final fun getRootDir ()Lorg/gradle/api/provider/Property;
+	public final fun getSkipInstall ()Lorg/gradle/api/provider/Property;
+	public final fun getTemplate ()Lorg/gradle/api/provider/Property;
+	public final fun getTypescript ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDeployTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDeployTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getOutDir ()Lorg/gradle/api/provider/Property;
+	public final fun getSkipBuild ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDeployTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDeployTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKillPortTask : com/github/gradle/node/npm/task/NpxTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKillPortTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getPort ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKillPortTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKillPortTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getBuild ()Lorg/gradle/api/provider/Property;
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getDir ()Lorg/gradle/api/provider/Property;
+	public final fun getHost ()Lorg/gradle/api/provider/Property;
+	public final fun getNoOpen ()Lorg/gradle/api/provider/Property;
+	public final fun getPort ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getHost ()Lorg/gradle/api/provider/Property;
+	public final fun getHotOnly ()Lorg/gradle/api/provider/Property;
+	public final fun getNoMinify ()Lorg/gradle/api/provider/Property;
+	public final fun getNoOpen ()Lorg/gradle/api/provider/Property;
+	public final fun getPoll ()Lorg/gradle/api/provider/Property;
+	public final fun getPort ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getComponentName ()Lorg/gradle/api/provider/Property;
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getDanger ()Lorg/gradle/api/provider/Property;
+	public final fun getEject ()Lorg/gradle/api/provider/Property;
+	public final fun getList ()Lorg/gradle/api/provider/Property;
+	public final fun getThemeName ()Lorg/gradle/api/provider/Property;
+	public final fun getTypescript ()Lorg/gradle/api/provider/Property;
+	public final fun getWrap ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getVersion ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getFiles ()Lorg/gradle/api/provider/Property;
+	public final fun getMaintainCase ()Lorg/gradle/api/provider/Property;
+	public final fun getOverwrite ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getLocale ()Lorg/gradle/api/provider/Property;
+	public final fun getMessagePrefix ()Lorg/gradle/api/provider/Property;
+	public final fun getOverride ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
