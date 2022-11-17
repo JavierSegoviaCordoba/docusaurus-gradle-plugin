@@ -1,3 +1,5 @@
+import com.javiersc.gradle.properties.extensions.getBooleanProperty
+
 pluginManagement {
     val hubdleVersion: String =
         file("$rootDir/gradle/libs.versions.toml")
@@ -8,6 +10,7 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
+        google()
     }
 
     plugins {
@@ -19,9 +22,9 @@ plugins {
     id("com.javiersc.hubdle.settings")
 }
 
-dependencyResolutionManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
+hubdleSettings {
+    autoInclude {
+        val isSandboxEnabled = getBooleanProperty("sandbox.enabled")
+        if (!isSandboxEnabled) excludedBuilds("sandbox")
     }
 }

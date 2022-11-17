@@ -1,0 +1,225 @@
+public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusConfig {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;)Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig;
+	public static synthetic fun copy$default (Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;ILjava/lang/Object;)Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBaseUrl ()Ljava/lang/String;
+	public final fun getFavicon ()Ljava/lang/String;
+	public final fun getGithubConfig ()Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;
+	public final fun getOnBrokenLinks ()Ljava/lang/String;
+	public final fun getOnBrokenMarkdownLinks ()Ljava/lang/String;
+	public final fun getTagline ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;
+	public static synthetic fun copy$default (Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$GitHubConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOrganizationName ()Ljava/lang/String;
+	public final fun getProjectName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$i18n {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Set;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;Ljava/util/Map;)Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$i18n;
+	public static synthetic fun copy$default (Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$i18n;Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$i18n;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDefaultLocale ()Ljava/lang/String;
+	public final fun getLocaleConfigs ()Ljava/util/Map;
+	public final fun getLocales ()Ljava/util/Set;
+	public final fun getPath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$i18n$LocaleConfig {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$i18n$LocaleConfig;
+	public static synthetic fun copy$default (Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$i18n$LocaleConfig;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/javiersc/docusaurus/gradle/plugin/DocusaurusConfig$i18n$LocaleConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCalendar ()Ljava/lang/String;
+	public final fun getDirection ()Ljava/lang/String;
+	public final fun getHtmlLang ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getPath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/DocusaurusConfigExtension {
+	public fun <init> (Lorg/gradle/api/model/ObjectFactory;Lorg/gradle/api/file/ProjectLayout;)V
+	public final fun getBaseUrl ()Lorg/gradle/api/provider/Property;
+	public final fun getTitle ()Lorg/gradle/api/provider/Property;
+	public final fun getUrl ()Lorg/gradle/api/provider/Property;
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/DocusaurusExtension {
+	public fun <init> (Lorg/gradle/api/model/ObjectFactory;Lorg/gradle/api/file/ProjectLayout;)V
+	public final fun getDirectory ()Lorg/gradle/api/file/DirectoryProperty;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusPlugin : com/javiersc/gradle/plugin/extensions/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public synthetic fun javaApply (Ljava/lang/Object;)V
+	public fun javaApply (Lorg/gradle/api/Project;)V
+	public synthetic fun kotlinApply (Ljava/lang/Object;)V
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getBundleAnalyzer ()Lorg/gradle/api/provider/Property;
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getNoMinify ()Lorg/gradle/api/provider/Property;
+	public final fun getOutDir ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCheckPackageJsonTask : org/gradle/api/DefaultTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCheckPackageJsonTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> (Lorg/gradle/api/model/ObjectFactory;)V
+	public final fun getName ()Lorg/gradle/api/provider/Property;
+	public final fun getPackageJson ()Lorg/gradle/api/file/RegularFileProperty;
+	public final fun run ()V
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCheckPackageJsonTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask : com/github/gradle/node/npm/task/NpxTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getWebsiteDirectory ()Lorg/gradle/api/file/DirectoryProperty;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getBuild ()Lorg/gradle/api/provider/Property;
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getDir ()Lorg/gradle/api/provider/Property;
+	public final fun getHost ()Lorg/gradle/api/provider/Property;
+	public final fun getNoOpen ()Lorg/gradle/api/provider/Property;
+	public final fun getPort ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask : com/github/gradle/node/npm/task/NpmTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getHost ()Lorg/gradle/api/provider/Property;
+	public final fun getHotOnly ()Lorg/gradle/api/provider/Property;
+	public final fun getNoMinify ()Lorg/gradle/api/provider/Property;
+	public final fun getNoOpen ()Lorg/gradle/api/provider/Property;
+	public final fun getPoll ()Lorg/gradle/api/provider/Property;
+	public final fun getPort ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask : com/github/gradle/node/npm/task/NpmTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getComponentName ()Lorg/gradle/api/provider/Property;
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getDanger ()Lorg/gradle/api/provider/Property;
+	public final fun getEject ()Lorg/gradle/api/provider/Property;
+	public final fun getList ()Lorg/gradle/api/provider/Property;
+	public final fun getThemeName ()Lorg/gradle/api/provider/Property;
+	public final fun getTypescript ()Lorg/gradle/api/provider/Property;
+	public final fun getWrap ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask : com/github/gradle/node/npm/task/NpmTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getVersion ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask : com/github/gradle/node/npm/task/NpmTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getFiles ()Lorg/gradle/api/provider/Property;
+	public final fun getMaintainCase ()Lorg/gradle/api/provider/Property;
+	public final fun getOverwrite ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask$Companion {
+}
+
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask : com/github/gradle/node/npm/task/NpmTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getConfig ()Lorg/gradle/api/provider/Property;
+	public final fun getLocale ()Lorg/gradle/api/provider/Property;
+	public final fun getMessagePrefix ()Lorg/gradle/api/provider/Property;
+	public final fun getOverride ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask$Companion {
+}
+
