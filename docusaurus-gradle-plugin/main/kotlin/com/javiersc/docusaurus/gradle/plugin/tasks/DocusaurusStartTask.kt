@@ -2,12 +2,12 @@
 
 package com.javiersc.docusaurus.gradle.plugin.tasks
 
-import com.github.gradle.node.npm.task.NpmInstallTask
-import com.github.gradle.node.npm.task.NpmTask
+import com.github.gradle.node.yarn.task.YarnInstallTask
+import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.cliLink
-import com.javiersc.docusaurus.gradle.plugin.internal.npmCommand
 import com.javiersc.docusaurus.gradle.plugin.internal.nullConvention
+import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
@@ -20,7 +20,7 @@ import org.gradle.api.tasks.options.Option
  *
  * [Docusaurus CLI start command](https://docusaurus.io/docs/cli#docusaurus-start-sitedir)
  */
-public abstract class DocusaurusStartTask : NpmTask() {
+public abstract class DocusaurusStartTask : YarnTask() {
 
     @Input
     @Optional
@@ -61,6 +61,9 @@ public abstract class DocusaurusStartTask : NpmTask() {
         group = "documentation"
         description =
             "Builds and serves a preview of your site locally.".cliLink("docusaurus-start-sitedir")
+
+        dependsOn(DocusaurusCheckPackageJsonTask.NAME)
+        dependsOn(YarnInstallTask.NAME)
     }
 
     public companion object {
@@ -93,14 +96,17 @@ public abstract class DocusaurusStartTask : NpmTask() {
 
         internal fun Project.registerDocusaurusStartTask(docusaurusExtension: DocusaurusExtension) {
             tasks.maybeRegisterLazily<DocusaurusStartTask>(NAME) { task ->
-                task.dependsOn(DocusaurusCheckPackageJsonTask.NAME)
-                task.dependsOn(NpmInstallTask.NAME)
+                if (docusaurusExtension.dependsOnKillPortTask.get()) {
+                    task.dependsOn(DocusaurusKillPortTask.NAME)
+                }
 
                 task.workingDir.set(file(docusaurusExtension.directory))
+                task.port.set(docusaurusExtension.port)
 
-                task.npmCommand(
+                task.yarnCommand(
+                    preCommand = "run",
                     command = "start",
-                    options =
+                    arguments =
                         mapOf(
                             Port to task.port,
                             Host to task.host,

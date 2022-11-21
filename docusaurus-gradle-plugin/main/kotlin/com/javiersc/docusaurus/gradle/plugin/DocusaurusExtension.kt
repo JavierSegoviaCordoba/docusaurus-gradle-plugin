@@ -14,16 +14,13 @@ constructor(
     layout: ProjectLayout,
 ) {
 
-    public val directory: DirectoryProperty =
-        objects.directoryProperty().convention(layout.projectDirectory.dir(".docs"))
-}
+    public val name: Property<String> = objects.property<String>().convention("website")
 
-public abstract class DocusaurusConfigExtension
-constructor(
-    objects: ObjectFactory,
-    layout: ProjectLayout,
-) {
-    public val title: Property<String> = objects.property()
-    public val url: Property<String> = objects.property<String>().convention("/")
-    public val baseUrl: Property<String> = objects.property()
+    public val port: Property<String> = objects.property<String>().convention("3000")
+
+    public val dependsOnKillPortTask: Property<Boolean> =
+        objects.property<Boolean>().convention(true)
+
+    public val directory: DirectoryProperty =
+        objects.directoryProperty().convention(layout.projectDirectory.dir(name))
 }

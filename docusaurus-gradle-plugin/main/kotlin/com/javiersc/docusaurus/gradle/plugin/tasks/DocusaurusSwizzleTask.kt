@@ -2,10 +2,10 @@
 
 package com.javiersc.docusaurus.gradle.plugin.tasks
 
-import com.github.gradle.node.npm.task.NpmInstallTask
-import com.github.gradle.node.npm.task.NpmTask
+import com.github.gradle.node.yarn.task.YarnInstallTask
+import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
-import com.javiersc.docusaurus.gradle.plugin.internal.npmCommand
+import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
@@ -14,7 +14,7 @@ import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.options.Option
 import org.gradle.kotlin.dsl.property
 
-public abstract class DocusaurusSwizzleTask : NpmTask() {
+public abstract class DocusaurusSwizzleTask : YarnTask() {
 
     @Input
     @Option(option = "themeName", description = ThemeDescription)
@@ -27,27 +27,27 @@ public abstract class DocusaurusSwizzleTask : NpmTask() {
     @Input
     @Optional
     @Option(option = "list", description = ListDescription)
-    public val list: Property<String?> = objects.property()
+    public val list: Property<Boolean?> = objects.property()
 
     @Input
     @Optional
     @Option(option = "eject", description = EjectDescription)
-    public val eject: Property<String?> = objects.property()
+    public val eject: Property<Boolean?> = objects.property()
 
     @Input
     @Optional
     @Option(option = "wrap", description = WrapDescription)
-    public val wrap: Property<String?> = objects.property()
+    public val wrap: Property<Boolean?> = objects.property()
 
     @Input
     @Optional
     @Option(option = "danger", description = DangerDescription)
-    public val danger: Property<String?> = objects.property()
+    public val danger: Property<Boolean?> = objects.property()
 
     @Input
     @Optional
     @Option(option = "typescript", description = TypescriptDescription)
-    public val typescript: Property<String?> = objects.property()
+    public val typescript: Property<Boolean?> = objects.property()
 
     @Input
     @Optional
@@ -56,6 +56,8 @@ public abstract class DocusaurusSwizzleTask : NpmTask() {
 
     init {
         group = "documentation"
+        dependsOn(DocusaurusCheckPackageJsonTask.NAME)
+        dependsOn(YarnInstallTask.NAME)
     }
 
     public companion object {
@@ -88,19 +90,17 @@ public abstract class DocusaurusSwizzleTask : NpmTask() {
             docusaurusExtension: DocusaurusExtension
         ) {
             tasks.maybeRegisterLazily<DocusaurusSwizzleTask>(NAME) { task ->
-                task.dependsOn(DocusaurusCheckPackageJsonTask.NAME)
-                task.dependsOn(NpmInstallTask.NAME)
-
                 task.workingDir.set(file(docusaurusExtension.directory))
 
-                task.npmCommand(
-                    command = "build",
-                    values =
+                task.yarnCommand(
+                    preCommand = "run",
+                    command = "swizzle",
+                    additionalCommands =
                         listOf(
                             task.themeName,
                             task.componentName,
                         ),
-                    options =
+                    arguments =
                         mapOf(
                             List to task.list,
                             Eject to task.eject,

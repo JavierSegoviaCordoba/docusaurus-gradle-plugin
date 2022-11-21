@@ -5,6 +5,8 @@ import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusBuildTask.Companion
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusCheckPackageJsonTask.Companion.registerDocusaurusCheckPackageJsonTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusClearTask.Companion.registerDocusaurusClearTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusCreateTask.Companion.registerDocusaurusCreateTask
+import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusDeployTask.Companion.registerDocusaurusDeployTask
+import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusKillPortTask.Companion.registerDocusaurusKillPortTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusServeTask.Companion.registerDocusaurusServeTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusStartTask.Companion.registerDocusaurusStartTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusSwizzleTask.Companion.registerDocusaurusSwizzleTask
@@ -25,19 +27,18 @@ public class DocusaurusPlugin : Plugin<Project> {
 
         configNode(docusaurusExtension)
 
-        val projectName = name.takeIf { it.isNotBlank() } ?: "docusaurus"
-        val projectVersion = version
-
-        registerDocusaurusCheckPackageJsonTask(projectName, docusaurusExtension)
-        registerDocusaurusCreateTask(projectName, docusaurusExtension)
+        registerDocusaurusKillPortTask()
+        registerDocusaurusCheckPackageJsonTask(docusaurusExtension)
+        registerDocusaurusCreateTask()
         registerDocusaurusStartTask(docusaurusExtension)
         registerDocusaurusBuildTask(docusaurusExtension)
         registerDocusaurusSwizzleTask(docusaurusExtension)
+        registerDocusaurusDeployTask(docusaurusExtension)
         registerDocusaurusServeTask(docusaurusExtension)
         registerDocusaurusClearTask(docusaurusExtension)
         registerDocusaurusWriteTranslationsTask(docusaurusExtension)
         registerDocusaurusWriteHeadingIdsTask(docusaurusExtension)
-        registerDocusaurusVersionTask(projectVersion, docusaurusExtension)
+        registerDocusaurusVersionTask(version, docusaurusExtension)
     }
 
     private fun Project.configNode(docusaurusExtension: DocusaurusExtension) {

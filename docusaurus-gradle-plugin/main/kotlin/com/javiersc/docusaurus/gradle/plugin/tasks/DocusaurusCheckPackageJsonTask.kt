@@ -58,14 +58,11 @@ constructor(
         public const val NAME: String = "docusaurusCheckPackageJson"
 
         internal fun Project.registerDocusaurusCheckPackageJsonTask(
-            projectName: String,
             docusaurusExtension: DocusaurusExtension
         ) {
             tasks.register<DocusaurusCheckPackageJsonTask>(NAME).configure { task ->
-                task.name.set(projectName)
-                task.packageJson.set(
-                    docusaurusExtension.directory.get().asFile.resolve("package.json")
-                )
+                task.name.set(docusaurusExtension.name)
+                task.packageJson.set(docusaurusExtension.directory.map { it.file("package.json") })
             }
         }
     }

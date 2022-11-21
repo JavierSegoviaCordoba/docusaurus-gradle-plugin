@@ -2,21 +2,29 @@
 
 package com.javiersc.docusaurus.gradle.plugin.tasks
 
-import com.github.gradle.node.npm.task.NpmInstallTask
-import com.github.gradle.node.npm.task.NpmTask
+import com.github.gradle.node.yarn.task.YarnInstallTask
+import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
+import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Optional
+import org.gradle.api.tasks.options.Option
 import org.gradle.kotlin.dsl.property
 
-public abstract class DocusaurusVersionTask : NpmTask() {
+public abstract class DocusaurusVersionTask : YarnTask() {
 
-    @Input public val version: Property<Any> = objects.property()
+    @Input
+    @Optional
+    @Option(option = "version", description = "The version to be tagged")
+    public val version: Property<Any> = objects.property()
 
     init {
         group = "documentation"
+        dependsOn(DocusaurusCheckPackageJsonTask.NAME)
+        dependsOn(YarnInstallTask.NAME)
     }
 
     public companion object {
@@ -27,17 +35,17 @@ public abstract class DocusaurusVersionTask : NpmTask() {
             docusaurusExtension: DocusaurusExtension
         ) {
             tasks.maybeRegisterLazily<DocusaurusVersionTask>(NAME) { task ->
-                task.dependsOn(DocusaurusCheckPackageJsonTask.NAME)
-                task.dependsOn(NpmInstallTask.NAME)
-
                 task.workingDir.set(file(docusaurusExtension.directory))
 
                 task.version.set(projectVersion)
 
-                task.npmCommand.set(
-                    providers.provider {
-                        listOf("run", "docusaurus", "docs:version", "${task.version.get()}")
-                    }
+                val taggedVersion = task.version.map(Any::toString)
+                val additionalDocsVersionCommand = providers.provider { "docs:version" }
+
+                task.yarnCommand(
+                    preCommand = "run",
+                    command = "docusaurus",
+                    additionalCommands = listOf(additionalDocsVersionCommand, taggedVersion),
                 )
             }
         }

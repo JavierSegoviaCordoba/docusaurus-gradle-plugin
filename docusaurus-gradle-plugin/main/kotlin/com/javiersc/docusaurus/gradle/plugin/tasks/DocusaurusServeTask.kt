@@ -2,7 +2,7 @@
 
 package com.javiersc.docusaurus.gradle.plugin.tasks
 
-import com.github.gradle.node.npm.task.NpmInstallTask
+import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
@@ -23,6 +23,8 @@ public abstract class DocusaurusServeTask : YarnTask() {
 
     init {
         group = "documentation"
+        dependsOn(DocusaurusCheckPackageJsonTask.NAME)
+        dependsOn(YarnInstallTask.NAME)
     }
 
     public companion object {
@@ -36,14 +38,12 @@ public abstract class DocusaurusServeTask : YarnTask() {
 
         internal fun Project.registerDocusaurusServeTask(docusaurusExtension: DocusaurusExtension) {
             tasks.maybeRegisterLazily<DocusaurusServeTask>(NAME) { task ->
-                task.dependsOn(DocusaurusCheckPackageJsonTask.NAME)
-                task.dependsOn(NpmInstallTask.NAME)
-
                 task.workingDir.set(file(docusaurusExtension.directory))
 
                 task.yarnCommand(
+                    preCommand = "run",
                     command = "serve",
-                    properties =
+                    arguments =
                         mapOf(
                             Port to task.port,
                             Dir to task.dir,

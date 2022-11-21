@@ -14,12 +14,7 @@ import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.options.Option
 import org.gradle.kotlin.dsl.property
 
-public abstract class DocusaurusBuildTask : YarnTask() {
-
-    @Input
-    @Optional
-    @Option(option = "bundle-analyzer", description = BundleAnalyzerDescription)
-    public val bundleAnalyzer: Property<Boolean?> = objects.property()
+public abstract class DocusaurusDeployTask : YarnTask() {
 
     @Input
     @Optional
@@ -28,13 +23,13 @@ public abstract class DocusaurusBuildTask : YarnTask() {
 
     @Input
     @Optional
-    @Option(option = "config", description = ConfigDescription)
-    public val config: Property<String?> = objects.property()
+    @Option(option = "skip-build", description = SkipBuildDescription)
+    public val skipBuild: Property<Boolean?> = objects.property()
 
     @Input
     @Optional
-    @Option(option = "no-minify", description = NoMinifyDescription)
-    public val noMinify: Property<Boolean?> = objects.property()
+    @Option(option = "config", description = ConfigDescription)
+    public val config: Property<String?> = objects.property()
 
     init {
         group = "documentation"
@@ -43,36 +38,35 @@ public abstract class DocusaurusBuildTask : YarnTask() {
     }
 
     public companion object {
-        public const val NAME: String = "docusaurusBuild"
-
-        private const val BundleAnalyzer = "--bundle-analyzer"
-        private const val BundleAnalyzerDescription =
-            "Analyze your bundle with the webpack bundle analyzer."
+        public const val NAME: String = "docusaurusDeploy"
 
         private const val OutDir = "--out-dir"
         private const val OutDirDescription =
             "The full path for the new output directory, relative to the current workspace."
 
+        private const val SkipBuild = "--skip-build"
+        private const val SkipBuildDescription =
+            "Deploy website without building it. This may be useful when using a custom deploy " +
+                "script."
+
         private const val Config = "--config"
         private const val ConfigDescription =
             "Path to Docusaurus config file, default to `[siteDir]/docusaurus.config.js`"
 
-        private const val NoMinify = "--no-minify"
-        private const val NoMinifyDescription = "Build website without minimizing JS/CSS bundles."
-
-        internal fun Project.registerDocusaurusBuildTask(docusaurusExtension: DocusaurusExtension) {
-            tasks.maybeRegisterLazily<DocusaurusBuildTask>(NAME) { task ->
+        internal fun Project.registerDocusaurusDeployTask(
+            docusaurusExtension: DocusaurusExtension
+        ) {
+            tasks.maybeRegisterLazily<DocusaurusDeployTask>(NAME) { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 
                 task.yarnCommand(
                     preCommand = "run",
-                    command = "build",
+                    command = "deploy",
                     arguments =
                         mapOf(
-                            BundleAnalyzer to task.bundleAnalyzer,
+                            SkipBuild to task.skipBuild,
                             OutDir to task.outDir,
                             Config to task.config,
-                            NoMinify to task.noMinify,
                         )
                 )
             }

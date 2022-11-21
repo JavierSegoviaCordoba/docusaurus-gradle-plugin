@@ -1,17 +1,37 @@
 package com.javiersc.docusaurus.gradle.plugin.internal
 
-import org.gradle.api.provider.Property
+import org.gradle.api.provider.Provider
+import org.gradle.api.provider.ProviderFactory
 
-internal fun buildArguments(
+internal fun ProviderFactory.buildListCommand(
+    preCommand: String,
     command: String,
-    values: List<Property<String>> = emptyList(),
-    options: Map<String, Property<*>>,
-): List<String> {
-    val optionsAsString: String =
-        options
-            .filter { it.value.orNull != null }
-            .map { (key: String, value: Property<*>) -> "$key ${value.get()}" }
-            .joinToString(" ")
-    val additionalOptions = if (optionsAsString.isNotEmpty()) "-- $optionsAsString" else ""
-    return listOf("run", command) + values.map(Property<String>::get) + additionalOptions.split(" ")
+    additionalCommands: List<Provider<String>> = emptyList(),
+): Provider<List<String>> = provider {
+    buildList {
+        add(preCommand)
+        add(command)
+        addAll(additionalCommands.map(Provider<String>::get))
+    }
+}
+
+internal fun ProviderFactory.buildStringCommand(
+    command: String,
+    additionalCommands: List<Provider<String>> = emptyList()
+): Provider<String> = provider {
+    buildList {
+            add(command)
+            addAll(additionalCommands.map(Provider<String>::get))
+        }
+        .joinToString(" ")
+}
+
+internal fun ProviderFactory.buildCliArguments(
+    arguments: Map<String, Provider<*>>
+): Provider<List<String>> = provider {
+    arguments
+        .filter { it.value.orNull != null }
+        .map { (key: String, value: Provider<*>) ->
+            if (value.get() is Boolean && value.get() == true) key else "$key=${value.get()}"
+        }
 }

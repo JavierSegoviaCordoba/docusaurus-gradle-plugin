@@ -9,7 +9,7 @@ internal class DocusaurusPluginTest : GradleTest() {
     fun `check package_json file`() =
         gradleTestKitTest(sandboxPath = "docusaurus/check package_json file") {
             println(gradlew("docusaurusCheckPackageJson").output)
-            println(projectDir.resolve(".docs").walkTopDown().toList().joinToString("\n"))
+            println(projectDir.resolve("website").walkTopDown().toList().joinToString("\n"))
         }
 
     @Test

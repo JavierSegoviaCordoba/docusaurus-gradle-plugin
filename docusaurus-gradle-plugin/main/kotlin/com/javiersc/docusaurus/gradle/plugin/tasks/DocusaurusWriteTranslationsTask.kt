@@ -2,17 +2,17 @@
 
 package com.javiersc.docusaurus.gradle.plugin.tasks
 
-import com.github.gradle.node.npm.task.NpmInstallTask
-import com.github.gradle.node.npm.task.NpmTask
+import com.github.gradle.node.yarn.task.YarnInstallTask
+import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
-import com.javiersc.docusaurus.gradle.plugin.internal.npmCommand
+import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.kotlin.dsl.property
 
-public abstract class DocusaurusWriteTranslationsTask : NpmTask() {
+public abstract class DocusaurusWriteTranslationsTask : YarnTask() {
 
     @Input public val locale: Property<String?> = objects.property()
     @Input public val override: Property<Boolean?> = objects.property()
@@ -21,6 +21,8 @@ public abstract class DocusaurusWriteTranslationsTask : NpmTask() {
 
     init {
         group = "documentation"
+        dependsOn(DocusaurusCheckPackageJsonTask.NAME)
+        dependsOn(YarnInstallTask.NAME)
     }
 
     public companion object {
@@ -34,18 +36,17 @@ public abstract class DocusaurusWriteTranslationsTask : NpmTask() {
             docusaurusExtension: DocusaurusExtension
         ) {
             tasks.maybeRegisterLazily<DocusaurusWriteTranslationsTask>(NAME) { task ->
-                task.dependsOn(DocusaurusCheckPackageJsonTask.NAME)
-                task.dependsOn(NpmInstallTask.NAME)
-
                 task.workingDir.set(file(docusaurusExtension.directory))
 
-                task.npmCommand(
+                task.yarnCommand(
+                    preCommand = "run",
                     command = "write-translations",
-                    options =
+                    arguments =
                         mapOf(
                             Locale to task.locale,
                             Override to task.override,
                             Config to task.config,
+                            MessagePrefix to task.messagePrefix,
                         )
                 )
             }
