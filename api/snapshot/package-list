@@ -1,0 +1,6 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:docusaurus-gradle-plugin
+com.javiersc.docusaurus.gradle.plugin
+com.javiersc.docusaurus.gradle.plugin.tasks

@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":docusaurus-gradle-plugin:dokkaHtmlPartial/main":[]}'
