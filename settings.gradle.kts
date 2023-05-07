@@ -24,7 +24,7 @@ plugins {
 
 hubdleSettings {
     autoInclude {
-        val isSandboxEnabled = getBooleanProperty("sandbox.enabled")
+        val isSandboxEnabled = getBooleanProperty("sandbox.enabled").orNull ?: false
         if (!isSandboxEnabled) excludedBuilds("sandbox")
     }
 }
