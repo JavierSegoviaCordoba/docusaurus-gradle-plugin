@@ -1,12 +1,11 @@
 package com.javiersc.docusaurus.gradle.plugin.tasks
 
-import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
 import com.javiersc.kotlin.stdlib.isNotNullNorEmpty
-import java.io.IOException
 import javax.inject.Inject
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import org.gradle.api.file.RegularFileProperty
@@ -42,14 +41,14 @@ constructor(
 
         try {
             val minimumPackageJson: MinimumPackageJson =
-                objectMapper.readValue(packageJson.get().asFile, MinimumPackageJson::class.java)
+                json.decodeFromString(packageJsonFile.readText())
             check(minimumPackageJson.name.isNotNullNorEmpty()) {
                 "`name` in `package.json` must not be null or empty"
             }
             check(minimumPackageJson.version.isNotNullNorEmpty()) {
                 "`version` in `package.json` must not be null or empty"
             }
-        } catch (ioException: IOException) {
+        } catch (_: Throwable) {
             error(invalidPackageJsonMessage)
         }
     }
@@ -83,9 +82,11 @@ private val DocusaurusCheckPackageJsonTask.invalidPackageJsonMessage: String
         "The file `package.json` is not correct or does not contain the minimum properties to be valid:\n\n$defaultPackageJsonContent"
 
 private data class MinimumPackageJson(
-    @JsonProperty("name") val name: String,
-    @JsonProperty("version") val version: String,
+    @SerialName("name") val name: String,
+    @SerialName("version") val version: String,
 )
 
-private val objectMapper: ObjectMapper =
-    ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+private val json = Json {
+    ignoreUnknownKeys = true
+    isLenient = true
+}
