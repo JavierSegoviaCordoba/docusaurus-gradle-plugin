@@ -25,6 +25,7 @@ hubdle {
                         }
                     }
                 }
+                serialization()
             }
 
             main {
