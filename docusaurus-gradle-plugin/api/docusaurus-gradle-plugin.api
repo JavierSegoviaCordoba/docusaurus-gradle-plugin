@@ -21,6 +21,22 @@ public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusPlugin$inline
 	public final synthetic fun execute (Ljava/lang/Object;)V
 }
 
+public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusAddTask : com/github/gradle/node/yarn/task/YarnTask {
+	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusAddTask$Companion;
+	public static final field NAME Ljava/lang/String;
+	public static final field packageName Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getPackageName ()Lorg/gradle/api/provider/Property;
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusAddTask$Companion {
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusAddTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
+}
+
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask : com/github/gradle/node/yarn/task/YarnTask {
 	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion;
 	public static final field NAME Ljava/lang/String;

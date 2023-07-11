@@ -17,3 +17,13 @@ internal fun YarnTask.yarnCommand(
     yarnCommand.set(providers.buildListCommand(preCommand, command, additionalCommands))
     args.set(providers.buildCliArguments(arguments))
 }
+
+internal fun YarnTask.yarnCommand(
+    preCommand: String,
+    command: Provider<String>,
+    additionalCommands: List<Provider<String>> = emptyList(),
+    arguments: Map<String, Provider<*>> = emptyMap(),
+) {
+    yarnCommand.set(providers.buildListCommand(preCommand, command, additionalCommands))
+    args.set(providers.buildCliArguments(arguments))
+}

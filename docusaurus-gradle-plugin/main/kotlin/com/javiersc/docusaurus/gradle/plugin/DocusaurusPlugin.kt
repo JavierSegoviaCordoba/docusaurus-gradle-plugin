@@ -1,6 +1,7 @@
 package com.javiersc.docusaurus.gradle.plugin
 
 import com.github.gradle.node.NodeExtension
+import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusAddTask.Companion.registerDocusaurusAddTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusBuildTask.Companion.registerDocusaurusBuildTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusCheckPackageJsonTask.Companion.registerDocusaurusCheckPackageJsonTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusClearTask.Companion.registerDocusaurusClearTask
@@ -39,6 +40,7 @@ public class DocusaurusPlugin : Plugin<Project> {
         registerDocusaurusWriteTranslationsTask()
         registerDocusaurusWriteHeadingIdsTask()
         registerDocusaurusVersionTask(version)
+        registerDocusaurusAddTask()
     }
 
     private fun Project.configNode() {

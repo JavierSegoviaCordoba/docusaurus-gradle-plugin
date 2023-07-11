@@ -15,6 +15,18 @@ internal fun ProviderFactory.buildListCommand(
     }
 }
 
+internal fun ProviderFactory.buildListCommand(
+    preCommand: String,
+    command: Provider<String>,
+    additionalCommands: List<Provider<String>> = emptyList(),
+): Provider<List<String>> = provider {
+    buildList {
+        add(preCommand)
+        add(command.get())
+        addAll(additionalCommands.map(Provider<String>::get))
+    }
+}
+
 internal fun ProviderFactory.buildStringCommand(
     command: String,
     additionalCommands: List<Provider<String>> = emptyList()
