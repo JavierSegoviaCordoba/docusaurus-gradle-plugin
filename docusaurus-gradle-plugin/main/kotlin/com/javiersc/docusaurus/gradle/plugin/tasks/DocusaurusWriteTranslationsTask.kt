@@ -4,7 +4,7 @@ package com.javiersc.docusaurus.gradle.plugin.tasks
 
 import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
-import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
+import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
@@ -32,9 +32,7 @@ public abstract class DocusaurusWriteTranslationsTask : YarnTask() {
         private const val Config = "--config"
         private const val MessagePrefix = "--messagePrefix"
 
-        internal fun Project.registerDocusaurusWriteTranslationsTask(
-            docusaurusExtension: DocusaurusExtension
-        ) {
+        internal fun Project.registerDocusaurusWriteTranslationsTask() {
             tasks.maybeRegisterLazily<DocusaurusWriteTranslationsTask>(NAME) { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 

@@ -3,7 +3,7 @@
 package com.javiersc.docusaurus.gradle.plugin.tasks
 
 import com.github.gradle.node.npm.task.NpxTask
-import com.github.gradle.node.yarn.task.YarnInstallTask
+import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.npxCommand
 import com.javiersc.docusaurus.gradle.plugin.internal.nullConvention
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
@@ -25,8 +25,9 @@ public abstract class DocusaurusCreateTask : NpxTask() {
     public val template: Property<String> = objects.property()
 
     @Input
+    @Optional
     @Option(option = "rootDir", description = RootDirDescription)
-    public val rootDir: Property<String> = objects.property()
+    public val rootDir: Property<String?> = nullConvention()
 
     @Input
     @Optional
@@ -54,7 +55,6 @@ public abstract class DocusaurusCreateTask : NpxTask() {
             "A scaffolding utility to help you instantly set up a functional Docusaurus app."
 
         dependsOn(DocusaurusCheckPackageJsonTask.NAME)
-        dependsOn(YarnInstallTask.NAME)
     }
 
     public companion object {
@@ -94,9 +94,9 @@ public abstract class DocusaurusCreateTask : NpxTask() {
 
         internal fun Project.registerDocusaurusCreateTask() {
             tasks.maybeRegisterLazily<DocusaurusCreateTask>(NAME) { task ->
-                task.name.set("website")
+                task.workingDir.set(layout.projectDirectory)
+                task.name.set(docusaurusExtension.name)
                 task.template.set("classic")
-                task.rootDir.set(layout.projectDirectory.asFile.absolutePath)
 
                 task.npxCommand(
                     command = "create-docusaurus@latest",

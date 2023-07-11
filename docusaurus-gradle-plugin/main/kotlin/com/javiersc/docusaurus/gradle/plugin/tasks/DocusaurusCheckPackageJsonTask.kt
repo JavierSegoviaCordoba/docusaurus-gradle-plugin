@@ -1,10 +1,10 @@
 package com.javiersc.docusaurus.gradle.plugin.tasks
 
-import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
+import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.kotlin.stdlib.isNotNullNorEmpty
 import javax.inject.Inject
 import kotlinx.serialization.SerialName
-import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
@@ -33,6 +33,8 @@ constructor(
     @TaskAction
     public fun run() {
         val packageJsonFile = packageJson.get().asFile
+        if (!packageJsonFile.parentFile.exists()) return
+
         if (!packageJsonFile.exists()) {
             packageJsonFile.parentFile.mkdirs()
             packageJsonFile.createNewFile()
@@ -42,6 +44,7 @@ constructor(
         try {
             val minimumPackageJson: MinimumPackageJson =
                 json.decodeFromString(packageJsonFile.readText())
+
             check(minimumPackageJson.name.isNotNullNorEmpty()) {
                 "`name` in `package.json` must not be null or empty"
             }
@@ -56,9 +59,7 @@ constructor(
     public companion object {
         public const val NAME: String = "docusaurusCheckPackageJson"
 
-        internal fun Project.registerDocusaurusCheckPackageJsonTask(
-            docusaurusExtension: DocusaurusExtension
-        ) {
+        internal fun Project.registerDocusaurusCheckPackageJsonTask() {
             tasks.register<DocusaurusCheckPackageJsonTask>(NAME).configure { task ->
                 task.name.set(docusaurusExtension.name)
                 task.packageJson.set(docusaurusExtension.directory.map { it.file("package.json") })
@@ -79,8 +80,10 @@ private val DocusaurusCheckPackageJsonTask.defaultPackageJsonContent: String
 
 private val DocusaurusCheckPackageJsonTask.invalidPackageJsonMessage: String
     get() =
-        "The file `package.json` is not correct or does not contain the minimum properties to be valid:\n\n$defaultPackageJsonContent"
+        "The file `package.json` is not correct or does not contain " +
+            "the minimum properties to be valid:\n\n$defaultPackageJsonContent"
 
+@Serializable
 private data class MinimumPackageJson(
     @SerialName("name") val name: String,
     @SerialName("version") val version: String,

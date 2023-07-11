@@ -4,7 +4,7 @@ package com.javiersc.docusaurus.gradle.plugin.tasks
 
 import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
-import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
+import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
@@ -30,10 +30,7 @@ public abstract class DocusaurusVersionTask : YarnTask() {
     public companion object {
         public const val NAME: String = "docusaurusVersion"
 
-        internal fun Project.registerDocusaurusVersionTask(
-            projectVersion: Any,
-            docusaurusExtension: DocusaurusExtension
-        ) {
+        internal fun Project.registerDocusaurusVersionTask(projectVersion: Any) {
             tasks.maybeRegisterLazily<DocusaurusVersionTask>(NAME) { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 

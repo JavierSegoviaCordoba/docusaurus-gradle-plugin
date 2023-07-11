@@ -15,36 +15,33 @@ import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusWriteHeadingIdsTask
 import com.javiersc.docusaurus.gradle.plugin.tasks.DocusaurusWriteTranslationsTask.Companion.registerDocusaurusWriteTranslationsTask
 import com.javiersc.gradle.plugin.extensions.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.create
-import org.gradle.kotlin.dsl.the
 
 public class DocusaurusPlugin : Plugin<Project> {
 
     public override fun Project.apply() {
-        val docusaurusExtension: DocusaurusExtension = extensions.create("docusaurus")
+        extensions.create<DocusaurusExtension>("docusaurus")
 
         pluginManager.apply("com.github.node-gradle.node")
 
-        configNode(docusaurusExtension)
+        configNode()
 
         registerDocusaurusKillPortTask()
-        registerDocusaurusCheckPackageJsonTask(docusaurusExtension)
+        registerDocusaurusCheckPackageJsonTask()
         registerDocusaurusCreateTask()
-        registerDocusaurusStartTask(docusaurusExtension)
-        registerDocusaurusBuildTask(docusaurusExtension)
-        registerDocusaurusSwizzleTask(docusaurusExtension)
-        registerDocusaurusDeployTask(docusaurusExtension)
-        registerDocusaurusServeTask(docusaurusExtension)
-        registerDocusaurusClearTask(docusaurusExtension)
-        registerDocusaurusWriteTranslationsTask(docusaurusExtension)
-        registerDocusaurusWriteHeadingIdsTask(docusaurusExtension)
-        registerDocusaurusVersionTask(version, docusaurusExtension)
+        registerDocusaurusStartTask()
+        registerDocusaurusBuildTask()
+        registerDocusaurusSwizzleTask()
+        registerDocusaurusDeployTask()
+        registerDocusaurusServeTask()
+        registerDocusaurusClearTask()
+        registerDocusaurusWriteTranslationsTask()
+        registerDocusaurusWriteHeadingIdsTask()
+        registerDocusaurusVersionTask(version)
     }
 
-    private fun Project.configNode(docusaurusExtension: DocusaurusExtension) {
-        the<NodeExtension>().apply {
-            download.set(false)
-            nodeProjectDir.set(file(docusaurusExtension.directory))
-        }
+    private fun Project.configNode() {
+        configure<NodeExtension> { nodeProjectDir.set(docusaurusExtension.directory) }
     }
 }

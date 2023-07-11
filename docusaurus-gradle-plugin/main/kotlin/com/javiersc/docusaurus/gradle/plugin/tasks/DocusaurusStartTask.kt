@@ -4,7 +4,7 @@ package com.javiersc.docusaurus.gradle.plugin.tasks
 
 import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
-import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
+import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.cliLink
 import com.javiersc.docusaurus.gradle.plugin.internal.nullConvention
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
@@ -94,7 +94,7 @@ public abstract class DocusaurusStartTask : YarnTask() {
         private const val NoMinify = "--no-minify"
         private const val NoMinifyDescription = "Build website without minimizing"
 
-        internal fun Project.registerDocusaurusStartTask(docusaurusExtension: DocusaurusExtension) {
+        internal fun Project.registerDocusaurusStartTask() {
             tasks.maybeRegisterLazily<DocusaurusStartTask>(NAME) { task ->
                 if (docusaurusExtension.dependsOnKillPortTask.get()) {
                     task.dependsOn(DocusaurusKillPortTask.NAME)

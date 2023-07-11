@@ -4,7 +4,7 @@ package com.javiersc.docusaurus.gradle.plugin.tasks
 
 import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
-import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
+import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
@@ -30,9 +30,7 @@ public abstract class DocusaurusWriteHeadingIdsTask : YarnTask() {
         private const val MaintainCase = "--maintain-case"
         private const val Overwrite = "--overwrite"
 
-        internal fun Project.registerDocusaurusWriteHeadingIdsTask(
-            docusaurusExtension: DocusaurusExtension
-        ) {
+        internal fun Project.registerDocusaurusWriteHeadingIdsTask() {
             tasks.maybeRegisterLazily<DocusaurusWriteHeadingIdsTask>(NAME) { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 

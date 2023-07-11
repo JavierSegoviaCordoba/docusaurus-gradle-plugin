@@ -4,7 +4,7 @@ package com.javiersc.docusaurus.gradle.plugin.tasks
 
 import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
-import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
+import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
@@ -60,7 +60,7 @@ public abstract class DocusaurusBuildTask : YarnTask() {
         private const val NoMinify = "--no-minify"
         private const val NoMinifyDescription = "Build website without minimizing JS/CSS bundles."
 
-        internal fun Project.registerDocusaurusBuildTask(docusaurusExtension: DocusaurusExtension) {
+        internal fun Project.registerDocusaurusBuildTask() {
             tasks.maybeRegisterLazily<DocusaurusBuildTask>(NAME) { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 

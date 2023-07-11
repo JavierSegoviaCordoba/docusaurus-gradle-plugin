@@ -4,7 +4,7 @@ package com.javiersc.docusaurus.gradle.plugin.tasks
 
 import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
-import com.javiersc.docusaurus.gradle.plugin.DocusaurusExtension
+import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
@@ -86,9 +86,7 @@ public abstract class DocusaurusSwizzleTask : YarnTask() {
         private const val ConfigDescription =
             "Path to Docusaurus config file, default to `[siteDir]/docusaurus.config.js`"
 
-        internal fun Project.registerDocusaurusSwizzleTask(
-            docusaurusExtension: DocusaurusExtension
-        ) {
+        internal fun Project.registerDocusaurusSwizzleTask() {
             tasks.maybeRegisterLazily<DocusaurusSwizzleTask>(NAME) { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 

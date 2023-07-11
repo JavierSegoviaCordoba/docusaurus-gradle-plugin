@@ -9,14 +9,14 @@ internal inline fun <reified T : Any?> NpxTask.nullConvention(): Property<T> =
 
 internal fun NpxTask.npxCommand(
     command: String,
-    additionalCommands: List<Property<String>> = emptyList(),
+    additionalCommands: List<Property<out String?>> = emptyList(),
     arguments: Map<String, Property<*>> = emptyMap(),
 ) {
     this@npxCommand.command.set(command)
     val args =
         providers.provider {
             buildList {
-                addAll(additionalCommands.map(Property<String>::get))
+                addAll(additionalCommands.mapNotNull(Property<out String?>::getOrNull))
                 addAll(providers.buildCliArguments(arguments).get())
             }
         }

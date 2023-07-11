@@ -4,6 +4,7 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/DocusaurusExtension 
 	public final fun getDirectory ()Lorg/gradle/api/file/DirectoryProperty;
 	public final fun getName ()Lorg/gradle/api/provider/Property;
 	public final fun getPort ()Lorg/gradle/api/provider/Property;
+	public final fun node (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
 }
 
 public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusPlugin : com/javiersc/gradle/plugin/extensions/Plugin {
@@ -13,6 +14,11 @@ public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusPlugin : com/
 	public synthetic fun javaApply (Ljava/lang/Object;)V
 	public fun javaApply (Lorg/gradle/api/Project;)V
 	public synthetic fun kotlinApply (Ljava/lang/Object;)V
+}
+
+public final class com/javiersc/docusaurus/gradle/plugin/DocusaurusPlugin$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun execute (Ljava/lang/Object;)V
 }
 
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask : com/github/gradle/node/yarn/task/YarnTask {
