@@ -14,10 +14,10 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusWriteTranslationsTask : YarnTask() {
 
-    @Input public val locale: Property<String?> = objects.property()
-    @Input public val override: Property<Boolean?> = objects.property()
-    @Input public val config: Property<String?> = objects.property()
-    @Input public val messagePrefix: Property<String?> = objects.property()
+    @get:Input public val locale: Property<String?> = objects.property()
+    @get:Input public val override: Property<Boolean?> = objects.property()
+    @get:Input public val config: Property<String?> = objects.property()
+    @get:Input public val messagePrefix: Property<String?> = objects.property()
 
     init {
         group = "documentation"

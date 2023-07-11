@@ -14,9 +14,9 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusWriteHeadingIdsTask : YarnTask() {
 
-    @Input public val files: Property<String?> = objects.property()
-    @Input public val maintainCase: Property<Boolean?> = objects.property()
-    @Input public val overwrite: Property<Boolean?> = objects.property()
+    @get:Input public val files: Property<String?> = objects.property()
+    @get:Input public val maintainCase: Property<Boolean?> = objects.property()
+    @get:Input public val overwrite: Property<Boolean?> = objects.property()
 
     init {
         group = "documentation"

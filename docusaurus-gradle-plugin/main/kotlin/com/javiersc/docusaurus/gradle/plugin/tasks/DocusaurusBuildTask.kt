@@ -16,24 +16,24 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusBuildTask : YarnTask() {
 
-    @Input
-    @Optional
-    @Option(option = "bundle-analyzer", description = BundleAnalyzerDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "bundle-analyzer", description = BundleAnalyzerDescription)
     public val bundleAnalyzer: Property<Boolean?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "out-dir", description = OutDirDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "out-dir", description = OutDirDescription)
     public val outDir: Property<String?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "config", description = ConfigDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "config", description = ConfigDescription)
     public val config: Property<String?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "no-minify", description = NoMinifyDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "no-minify", description = NoMinifyDescription)
     public val noMinify: Property<Boolean?> = objects.property()
 
     init {

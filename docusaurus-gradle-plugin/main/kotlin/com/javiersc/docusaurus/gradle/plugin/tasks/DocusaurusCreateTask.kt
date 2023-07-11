@@ -16,37 +16,37 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusCreateTask : NpxTask() {
 
-    @Input
-    @Option(option = "name", description = NameDescription)
+    @get:Input
+    @get:Option(option = "name", description = NameDescription)
     public val name: Property<String> = objects.property()
 
-    @Input
-    @Option(option = "template", description = TemplateDescription)
+    @get:Input
+    @get:Option(option = "template", description = TemplateDescription)
     public val template: Property<String> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "rootDir", description = RootDirDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "rootDir", description = RootDirDescription)
     public val rootDir: Property<String?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "typescript", description = TypescriptDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "typescript", description = TypescriptDescription)
     public val typescript: Property<Boolean?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "git-strategy", description = GitStrategyDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "git-strategy", description = GitStrategyDescription)
     public val gitStrategy: Property<String?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "package-manager", description = PackageManagerDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "package-manager", description = PackageManagerDescription)
     public val packageManager: Property<String?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "skip-install", description = SkipInstallDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "skip-install", description = SkipInstallDescription)
     public val skipInstall: Property<String?> = nullConvention()
 
     init {

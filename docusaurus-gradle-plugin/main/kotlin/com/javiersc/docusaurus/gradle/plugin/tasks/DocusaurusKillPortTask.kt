@@ -11,8 +11,8 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusKillPortTask : NpxTask() {
 
-    @Input
-    @Option(option = "port", description = PortDescription)
+    @get:Input
+    @get:Option(option = "port", description = PortDescription)
     public val port: Property<String> = objects.property()
 
     init {

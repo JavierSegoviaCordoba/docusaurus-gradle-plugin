@@ -16,42 +16,42 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusSwizzleTask : YarnTask() {
 
-    @Input
-    @Option(option = "themeName", description = ThemeDescription)
+    @get:Input
+    @get:Option(option = "themeName", description = ThemeDescription)
     public val themeName: Property<String> = objects.property()
 
-    @Input
-    @Option(option = "componentName", description = ComponentDescription)
+    @get:Input
+    @get:Option(option = "componentName", description = ComponentDescription)
     public val componentName: Property<String> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "list", description = ListDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "list", description = ListDescription)
     public val list: Property<Boolean?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "eject", description = EjectDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "eject", description = EjectDescription)
     public val eject: Property<Boolean?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "wrap", description = WrapDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "wrap", description = WrapDescription)
     public val wrap: Property<Boolean?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "danger", description = DangerDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "danger", description = DangerDescription)
     public val danger: Property<Boolean?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "typescript", description = TypescriptDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "typescript", description = TypescriptDescription)
     public val typescript: Property<Boolean?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "config", description = ConfigDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "config", description = ConfigDescription)
     public val config: Property<String?> = objects.property()
 
     init {

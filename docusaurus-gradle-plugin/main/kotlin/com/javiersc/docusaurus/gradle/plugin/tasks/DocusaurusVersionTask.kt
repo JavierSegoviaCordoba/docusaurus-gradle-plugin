@@ -16,9 +16,9 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusVersionTask : YarnTask() {
 
-    @Input
-    @Optional
-    @Option(option = "version", description = "The version to be tagged")
+    @get:Input
+    @get:Optional
+    @get:Option(option = "version", description = "The version to be tagged")
     public val version: Property<Any> = objects.property()
 
     init {

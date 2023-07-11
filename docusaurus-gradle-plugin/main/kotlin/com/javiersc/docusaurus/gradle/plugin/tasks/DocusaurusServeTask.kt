@@ -14,12 +14,12 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusServeTask : YarnTask() {
 
-    @Input public val port: Property<Int?> = objects.property()
-    @Input public val dir: Property<String?> = objects.property()
-    @Input public val build: Property<Boolean?> = objects.property()
-    @Input public val config: Property<String?> = objects.property()
-    @Input public val host: Property<String?> = objects.property()
-    @Input public val noOpen: Property<Boolean?> = objects.property()
+    @get:Input public val port: Property<Int?> = objects.property()
+    @get:Input public val dir: Property<String?> = objects.property()
+    @get:Input public val build: Property<Boolean?> = objects.property()
+    @get:Input public val config: Property<String?> = objects.property()
+    @get:Input public val host: Property<String?> = objects.property()
+    @get:Input public val noOpen: Property<Boolean?> = objects.property()
 
     init {
         group = "documentation"

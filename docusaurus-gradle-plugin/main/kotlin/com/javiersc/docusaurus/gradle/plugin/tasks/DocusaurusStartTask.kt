@@ -22,39 +22,39 @@ import org.gradle.api.tasks.options.Option
  */
 public abstract class DocusaurusStartTask : YarnTask() {
 
-    @Input
-    @Optional
-    @Option(option = "port", description = PortDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "port", description = PortDescription)
     public val port: Property<String?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "host", description = HostDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "host", description = HostDescription)
     public val host: Property<String?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "hot-only", description = HotOnlyDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "hot-only", description = HotOnlyDescription)
     public val hotOnly: Property<Boolean?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "no-open", description = NoOpenDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "no-open", description = NoOpenDescription)
     public val noOpen: Property<Boolean?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "config", description = ConfigDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "config", description = ConfigDescription)
     public val config: Property<String?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "poll", description = PollDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "poll", description = PollDescription)
     public val poll: Property<Boolean?> = nullConvention()
 
-    @Input
-    @Optional
-    @Option(option = "no-minify", description = NoMinifyDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "no-minify", description = NoMinifyDescription)
     public val noMinify: Property<Boolean?> = nullConvention()
 
     init {

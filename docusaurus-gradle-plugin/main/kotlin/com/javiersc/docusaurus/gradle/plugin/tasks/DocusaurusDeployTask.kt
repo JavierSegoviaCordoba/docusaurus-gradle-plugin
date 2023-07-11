@@ -16,19 +16,19 @@ import org.gradle.kotlin.dsl.property
 
 public abstract class DocusaurusDeployTask : YarnTask() {
 
-    @Input
-    @Optional
-    @Option(option = "out-dir", description = OutDirDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "out-dir", description = OutDirDescription)
     public val outDir: Property<String?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "skip-build", description = SkipBuildDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "skip-build", description = SkipBuildDescription)
     public val skipBuild: Property<Boolean?> = objects.property()
 
-    @Input
-    @Optional
-    @Option(option = "config", description = ConfigDescription)
+    @get:Input
+    @get:Optional
+    @get:Option(option = "config", description = ConfigDescription)
     public val config: Property<String?> = objects.property()
 
     init {
