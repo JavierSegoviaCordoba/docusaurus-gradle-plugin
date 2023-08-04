@@ -14,7 +14,7 @@
 
 ### Updated
 
-- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.5.0-beta.5`
+- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.5.0-beta.6`
 - `gradle -> 8.2.1`
 - `com.github.node-gradle:gradle-node-plugin -> 5.0.0`
 
