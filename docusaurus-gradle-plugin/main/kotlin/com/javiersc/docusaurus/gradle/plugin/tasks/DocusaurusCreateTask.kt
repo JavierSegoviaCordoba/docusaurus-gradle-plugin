@@ -6,13 +6,13 @@ import com.github.gradle.node.npm.task.NpxTask
 import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.npxCommand
 import com.javiersc.docusaurus.gradle.plugin.internal.nullConvention
-import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.options.Option
 import org.gradle.kotlin.dsl.property
+import org.gradle.kotlin.dsl.register
 
 public abstract class DocusaurusCreateTask : NpxTask() {
 
@@ -93,19 +93,14 @@ public abstract class DocusaurusCreateTask : NpxTask() {
                 "Check https://docusaurus.io/docs/next/api/misc/create-docusaurus#skip-install"
 
         internal fun Project.registerDocusaurusCreateTask() {
-            tasks.maybeRegisterLazily<DocusaurusCreateTask>(NAME) { task ->
+            tasks.register<DocusaurusCreateTask>(NAME).configure { task ->
                 task.workingDir.set(layout.projectDirectory)
                 task.name.set(docusaurusExtension.name)
                 task.template.set("classic")
 
                 task.npxCommand(
                     command = "create-docusaurus@latest",
-                    additionalCommands =
-                        listOf(
-                            task.name,
-                            task.template,
-                            task.rootDir,
-                        ),
+                    additionalCommands = listOf(task.name, task.template, task.rootDir),
                     arguments =
                         mapOf(
                             Typescript to task.typescript,

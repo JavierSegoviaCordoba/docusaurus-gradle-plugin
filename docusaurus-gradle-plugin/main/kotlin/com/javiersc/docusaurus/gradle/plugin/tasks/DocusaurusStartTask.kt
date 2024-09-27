@@ -8,12 +8,12 @@ import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.cliLink
 import com.javiersc.docusaurus.gradle.plugin.internal.nullConvention
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
-import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.options.Option
+import org.gradle.kotlin.dsl.register
 
 /**
  * Builds and serves a preview of your site locally
@@ -95,7 +95,7 @@ public abstract class DocusaurusStartTask : YarnTask() {
         private const val NoMinifyDescription = "Build website without minimizing"
 
         internal fun Project.registerDocusaurusStartTask() {
-            tasks.maybeRegisterLazily<DocusaurusStartTask>(NAME) { task ->
+            tasks.register<DocusaurusStartTask>(NAME).configure { task ->
                 if (docusaurusExtension.dependsOnKillPortTask.get()) {
                     task.dependsOn(DocusaurusKillPortTask.NAME)
                 }
@@ -115,7 +115,7 @@ public abstract class DocusaurusStartTask : YarnTask() {
                             Config to task.config,
                             Poll to task.poll,
                             NoMinify to task.noMinify,
-                        )
+                        ),
                 )
             }
         }

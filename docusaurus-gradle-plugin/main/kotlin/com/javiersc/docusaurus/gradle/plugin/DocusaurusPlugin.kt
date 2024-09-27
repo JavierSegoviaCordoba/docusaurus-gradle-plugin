@@ -44,6 +44,9 @@ public class DocusaurusPlugin : Plugin<Project> {
     }
 
     private fun Project.configNode() {
-        configure<NodeExtension> { nodeProjectDir.set(docusaurusExtension.directory) }
+        configure<NodeExtension> {
+            download.set(true)
+            nodeProjectDir.set(docusaurusExtension.directory)
+        }
     }
 }

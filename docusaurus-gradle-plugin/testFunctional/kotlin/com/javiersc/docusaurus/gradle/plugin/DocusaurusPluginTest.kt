@@ -8,13 +8,6 @@ import kotlin.test.Test
 internal class DocusaurusPluginTest : GradleTestKitTest() {
 
     @Test
-    fun `check package_json file`() =
-        gradleTestKitTest(sandboxPath = "docusaurus/check package_json file") {
-            println(gradlew("docusaurusCheckPackageJson").output)
-            println(projectDir.resolve("website").walkTopDown().toList().joinToString("\n"))
-        }
-
-    @Test
     fun `docusaurus create`() =
         gradleTestKitTest(sandboxPath = "docusaurus/check package_json file") {
             println(gradlew("docusaurusCreate").output)

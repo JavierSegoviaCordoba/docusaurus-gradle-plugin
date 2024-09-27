@@ -6,13 +6,13 @@ import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
-import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.options.Option
 import org.gradle.kotlin.dsl.property
+import org.gradle.kotlin.dsl.register
 
 public abstract class DocusaurusVersionTask : YarnTask() {
 
@@ -31,7 +31,7 @@ public abstract class DocusaurusVersionTask : YarnTask() {
         public const val NAME: String = "docusaurusVersion"
 
         internal fun Project.registerDocusaurusVersionTask(projectVersion: Any) {
-            tasks.maybeRegisterLazily<DocusaurusVersionTask>(NAME) { task ->
+            tasks.register<DocusaurusVersionTask>(NAME).configure { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 
                 task.version.set(projectVersion)

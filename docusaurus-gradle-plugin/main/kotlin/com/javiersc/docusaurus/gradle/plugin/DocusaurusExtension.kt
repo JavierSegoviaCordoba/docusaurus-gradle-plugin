@@ -13,10 +13,7 @@ import org.gradle.kotlin.dsl.the
 
 public abstract class DocusaurusExtension
 @Inject
-constructor(
-    objects: ObjectFactory,
-    layout: ProjectLayout,
-) {
+constructor(objects: ObjectFactory, layout: ProjectLayout) {
 
     public val name: Property<String> = objects.property<String>().convention("website")
 

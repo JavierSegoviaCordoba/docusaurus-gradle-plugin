@@ -32,11 +32,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusAddT
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusAddTask$Companion {
 }
 
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusAddTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
-}
-
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask : com/github/gradle/node/yarn/task/YarnTask {
 	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion;
 	public static final field NAME Ljava/lang/String;
@@ -48,11 +43,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuil
 }
 
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion {
-}
-
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusBuildTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCheckPackageJsonTask : org/gradle/api/DefaultTask {
@@ -76,11 +66,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClea
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask$Companion {
 }
 
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusClearTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
-}
-
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask : com/github/gradle/node/npm/task/NpxTask {
 	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask$Companion;
 	public static final field NAME Ljava/lang/String;
@@ -97,11 +82,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCrea
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask$Companion {
 }
 
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusCreateTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
-}
-
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDeployTask : com/github/gradle/node/yarn/task/YarnTask {
 	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDeployTask$Companion;
 	public static final field NAME Ljava/lang/String;
@@ -114,11 +94,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDepl
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDeployTask$Companion {
 }
 
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusDeployTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
-}
-
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKillPortTask : com/github/gradle/node/npm/task/NpxTask {
 	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKillPortTask$Companion;
 	public static final field NAME Ljava/lang/String;
@@ -127,11 +102,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKill
 }
 
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKillPortTask$Companion {
-}
-
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusKillPortTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask : com/github/gradle/node/yarn/task/YarnTask {
@@ -149,11 +119,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServ
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask$Companion {
 }
 
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusServeTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
-}
-
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask : com/github/gradle/node/yarn/task/YarnTask {
 	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask$Companion;
 	public static final field NAME Ljava/lang/String;
@@ -168,11 +133,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStar
 }
 
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask$Companion {
-}
-
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusStartTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask : com/github/gradle/node/yarn/task/YarnTask {
@@ -192,11 +152,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwiz
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask$Companion {
 }
 
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusSwizzleTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
-}
-
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask : com/github/gradle/node/yarn/task/YarnTask {
 	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask$Companion;
 	public static final field NAME Ljava/lang/String;
@@ -205,11 +160,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVers
 }
 
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask$Companion {
-}
-
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusVersionTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask : com/github/gradle/node/yarn/task/YarnTask {
@@ -224,11 +174,6 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWrit
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask$Companion {
 }
 
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteHeadingIdsTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
-}
-
 public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask : com/github/gradle/node/yarn/task/YarnTask {
 	public static final field Companion Lcom/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask$Companion;
 	public static final field NAME Ljava/lang/String;
@@ -240,10 +185,5 @@ public abstract class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWrit
 }
 
 public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask$Companion {
-}
-
-public final class com/javiersc/docusaurus/gradle/plugin/tasks/DocusaurusWriteTranslationsTask$Companion$inlined$sam$i$org_gradle_api_specs_Spec$0 : org/gradle/api/specs/Spec {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun isSatisfiedBy (Ljava/lang/Object;)Z
 }
 

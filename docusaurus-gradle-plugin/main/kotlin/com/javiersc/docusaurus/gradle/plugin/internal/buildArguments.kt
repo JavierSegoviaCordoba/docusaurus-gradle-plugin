@@ -29,7 +29,7 @@ internal fun ProviderFactory.buildListCommand(
 
 internal fun ProviderFactory.buildStringCommand(
     command: String,
-    additionalCommands: List<Provider<String>> = emptyList()
+    additionalCommands: List<Provider<String>> = emptyList(),
 ): Provider<String> = provider {
     buildList {
             add(command)

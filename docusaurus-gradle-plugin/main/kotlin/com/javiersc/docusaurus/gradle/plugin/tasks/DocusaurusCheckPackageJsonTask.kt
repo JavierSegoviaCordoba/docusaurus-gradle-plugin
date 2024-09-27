@@ -16,11 +16,8 @@ import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.property
 import org.gradle.kotlin.dsl.register
 
-public abstract class DocusaurusCheckPackageJsonTask
-@Inject
-constructor(
-    objects: ObjectFactory,
-) : DefaultTask() {
+public abstract class DocusaurusCheckPackageJsonTask @Inject constructor(objects: ObjectFactory) :
+    DefaultTask() {
 
     @Internal public val name: Property<String> = objects.property()
 

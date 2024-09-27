@@ -6,11 +6,11 @@ import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
-import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.kotlin.dsl.property
+import org.gradle.kotlin.dsl.register
 
 public abstract class DocusaurusWriteTranslationsTask : YarnTask() {
 
@@ -33,7 +33,7 @@ public abstract class DocusaurusWriteTranslationsTask : YarnTask() {
         private const val MessagePrefix = "--messagePrefix"
 
         internal fun Project.registerDocusaurusWriteTranslationsTask() {
-            tasks.maybeRegisterLazily<DocusaurusWriteTranslationsTask>(NAME) { task ->
+            tasks.register<DocusaurusWriteTranslationsTask>(NAME).configure { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 
                 task.yarnCommand(
@@ -45,7 +45,7 @@ public abstract class DocusaurusWriteTranslationsTask : YarnTask() {
                             Override to task.override,
                             Config to task.config,
                             MessagePrefix to task.messagePrefix,
-                        )
+                        ),
                 )
             }
         }

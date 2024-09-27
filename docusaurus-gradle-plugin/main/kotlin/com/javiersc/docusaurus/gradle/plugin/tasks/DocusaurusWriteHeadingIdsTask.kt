@@ -6,11 +6,11 @@ import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
-import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.kotlin.dsl.property
+import org.gradle.kotlin.dsl.register
 
 public abstract class DocusaurusWriteHeadingIdsTask : YarnTask() {
 
@@ -31,7 +31,7 @@ public abstract class DocusaurusWriteHeadingIdsTask : YarnTask() {
         private const val Overwrite = "--overwrite"
 
         internal fun Project.registerDocusaurusWriteHeadingIdsTask() {
-            tasks.maybeRegisterLazily<DocusaurusWriteHeadingIdsTask>(NAME) { task ->
+            tasks.register<DocusaurusWriteHeadingIdsTask>(NAME).configure { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 
                 task.yarnCommand(
@@ -42,7 +42,7 @@ public abstract class DocusaurusWriteHeadingIdsTask : YarnTask() {
                             Files to task.files,
                             MaintainCase to task.maintainCase,
                             Overwrite to task.overwrite,
-                        )
+                        ),
                 )
             }
         }

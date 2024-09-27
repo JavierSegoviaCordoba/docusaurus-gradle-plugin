@@ -6,11 +6,11 @@ import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
-import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.kotlin.dsl.property
+import org.gradle.kotlin.dsl.register
 
 public abstract class DocusaurusServeTask : YarnTask() {
 
@@ -37,7 +37,7 @@ public abstract class DocusaurusServeTask : YarnTask() {
         private const val NoOpen = "--no-open"
 
         internal fun Project.registerDocusaurusServeTask() {
-            tasks.maybeRegisterLazily<DocusaurusServeTask>(NAME) { task ->
+            tasks.register<DocusaurusServeTask>(NAME).configure { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 
                 task.yarnCommand(
@@ -51,7 +51,7 @@ public abstract class DocusaurusServeTask : YarnTask() {
                             Config to task.config,
                             Host to task.host,
                             NoOpen to task.noOpen,
-                        )
+                        ),
                 )
             }
         }

@@ -6,13 +6,13 @@ import com.github.gradle.node.yarn.task.YarnInstallTask
 import com.github.gradle.node.yarn.task.YarnTask
 import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
-import com.javiersc.gradle.tasks.extensions.maybeRegisterLazily
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.options.Option
 import org.gradle.kotlin.dsl.property
+import org.gradle.kotlin.dsl.register
 
 public abstract class DocusaurusSwizzleTask : YarnTask() {
 
@@ -87,17 +87,13 @@ public abstract class DocusaurusSwizzleTask : YarnTask() {
             "Path to Docusaurus config file, default to `[siteDir]/docusaurus.config.js`"
 
         internal fun Project.registerDocusaurusSwizzleTask() {
-            tasks.maybeRegisterLazily<DocusaurusSwizzleTask>(NAME) { task ->
+            tasks.register<DocusaurusSwizzleTask>(NAME).configure { task ->
                 task.workingDir.set(file(docusaurusExtension.directory))
 
                 task.yarnCommand(
                     preCommand = "run",
                     command = "swizzle",
-                    additionalCommands =
-                        listOf(
-                            task.themeName,
-                            task.componentName,
-                        ),
+                    additionalCommands = listOf(task.themeName, task.componentName),
                     arguments =
                         mapOf(
                             List to task.list,
@@ -106,7 +102,7 @@ public abstract class DocusaurusSwizzleTask : YarnTask() {
                             Danger to task.danger,
                             Typescript to task.typescript,
                             Config to task.config,
-                        )
+                        ),
                 )
             }
         }

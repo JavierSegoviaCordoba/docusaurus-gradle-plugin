@@ -35,6 +35,8 @@ hubdle {
                     implementation(libs.github.nodeGradle.node)
                 }
             }
+
+            testFunctional()
         }
     }
 }
