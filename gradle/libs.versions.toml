@@ -1,6 +1,6 @@
 [versions]
 hubdle = "0.7.12"
-node = "7.0.2"
+node = "7.1.0"
 
 [libraries]
 github-nodeGradle-node = { module = "com.github.node-gradle:gradle-node-plugin", version.ref = "node" }
