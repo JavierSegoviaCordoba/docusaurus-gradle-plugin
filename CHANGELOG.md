@@ -14,7 +14,7 @@
 
 ### Updated
 
-- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.7.14`
+- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.7.15`
 - `com.github.node-gradle:gradle-node-plugin -> 7.1.0`
 - `gradle -> 8.10.2`
 
