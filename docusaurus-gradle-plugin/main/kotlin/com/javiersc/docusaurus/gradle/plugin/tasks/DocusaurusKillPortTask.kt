@@ -8,7 +8,9 @@ import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.options.Option
 import org.gradle.kotlin.dsl.property
 import org.gradle.kotlin.dsl.register
+import org.gradle.work.DisableCachingByDefault
 
+@DisableCachingByDefault
 public abstract class DocusaurusKillPortTask : NpxTask() {
 
     @get:Input

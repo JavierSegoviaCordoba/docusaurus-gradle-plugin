@@ -11,7 +11,9 @@ import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.kotlin.dsl.property
 import org.gradle.kotlin.dsl.register
+import org.gradle.work.DisableCachingByDefault
 
+@DisableCachingByDefault
 public abstract class DocusaurusWriteTranslationsTask : YarnTask() {
 
     @get:Input public val locale: Property<String?> = objects.property()

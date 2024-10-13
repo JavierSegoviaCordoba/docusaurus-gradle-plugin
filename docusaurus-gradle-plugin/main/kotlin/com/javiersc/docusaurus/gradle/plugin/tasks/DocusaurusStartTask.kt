@@ -14,12 +14,14 @@ import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.options.Option
 import org.gradle.kotlin.dsl.register
+import org.gradle.work.DisableCachingByDefault
 
 /**
  * Builds and serves a preview of your site locally
  *
  * [Docusaurus CLI start command](https://docusaurus.io/docs/cli#docusaurus-start-sitedir)
  */
+@DisableCachingByDefault
 public abstract class DocusaurusStartTask : YarnTask() {
 
     @get:Input
