@@ -15,7 +15,9 @@ import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.property
 import org.gradle.kotlin.dsl.register
+import org.gradle.work.DisableCachingByDefault
 
+@DisableCachingByDefault
 public abstract class DocusaurusCheckPackageJsonTask @Inject constructor(objects: ObjectFactory) :
     DefaultTask() {
 

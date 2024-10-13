@@ -8,7 +8,9 @@ import com.javiersc.docusaurus.gradle.plugin.docusaurusExtension
 import com.javiersc.docusaurus.gradle.plugin.internal.yarnCommand
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.register
+import org.gradle.work.DisableCachingByDefault
 
+@DisableCachingByDefault
 public abstract class DocusaurusClearTask : YarnTask() {
 
     init {
