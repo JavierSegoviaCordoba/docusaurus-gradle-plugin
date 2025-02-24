@@ -27,6 +27,7 @@ hubdle {
                         }
                     }
                 }
+                kotest()
                 serialization()
             }
 
