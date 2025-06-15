@@ -1,5 +1,5 @@
 [versions]
-hubdle = "0.9.1"
+hubdle = "0.10.1"
 node = "7.1.0"
 
 [libraries]
